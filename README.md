@@ -1,89 +1,70 @@
-# React State Lab
+# Getting Started with Create React App
 
-## Learning Goals
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- Update state based on events
-- Work with multiple state variables together
+## Available Scripts
 
-## Introduction
+In the project directory, you can run:
 
-In the labs for this section, we'll be working on a grocery list app. Some of
-this app is already built out using static versions of the components. We'll be
-using **state** and **events** to make our app dynamic.
+### `npm start`
 
-The components you have to work with are in the `src/components` folder. Start
-by examining these components and draw out your component hierarchy to see how
-data can be passed from one component to another.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-In this lab, you'll update state and get more practice with the `useState` hook.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-It's recommended that you run `npm start` and work on this in the browser
-**before** running tests. Try to get your app to match the demo! Once you've
-built out the components below, run `npm test` to see if your code passes the
-tests.
+### `npm test`
 
-![demo](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-state-and-events-lab/demo.gif)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Deliverables
+### `npm run build`
 
-### Dark Mode Toggle
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-In the `App` component, there is a button for toggling between dark mode and
-light mode. Using the `useState` hook, create a state variable in the `App`
-component. Then, use that variable to determine if our app should be in dark
-mode or light mode.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-You will also need to add an event handler to the dark mode button, and update
-state when the button is clicked.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-The actual functionality of changing our app's theme is handled in CSS, so all
-you have to do is set up the code to update the `className` of the div based on
-your state variable:
+### `npm run eject`
 
-```jsx
-<div className="App dark">
-{/* for dark mode */}
-</div>
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-<div className="App light">
-{/* for light mode */}
-</div>
-```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Add to Cart
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-In the `Item` component, when the user clicks the `<button>` element, the item
-should be added to their virtual cart. The way we'll show the user that the item
-is in the cart is by changing the className on the `<li>` element:
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-```jsx
-<li className="in-cart">
-{/* the item is in the cart */}
-</li>
+## Learn More
 
-<li className="">
-{/* the item is NOT in the cart */}
-</li>
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-If the item _is not_ in the cart, the `<button>` element's text should read "Add
-to Cart", and if the item _is_ in the cart, the `<button>` element's text should
-read "Remove From Cart". Naturally, you'll also need to add state to the `Item`
-component to solve this deliverable!
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Filter
+### Code Splitting
 
-In the `ShoppingList` component, there is a `<select>` element that will allow
-us to **filter** the list of items by category.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-Use the `useState` hook to create a state variable called `selectedCategory` for
-keeping track of the selected value from this `<select>` element. When the value
-of the `<select>` element is **changed**, update state.
+### Analyzing the Bundle Size
 
-You should also use the `selectedCategory` variable to determine which items to
-display in the shopping list. You'll need some way of **filter**ing the array of
-items based on the `selectedCategory`.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## Resources
+### Making a Progressive Web App
 
-- [React Docs on `useState`](https://reactjs.org/docs/hooks-state.html)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

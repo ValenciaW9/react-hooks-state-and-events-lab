@@ -1,30 +1,23 @@
+
+import React, { useState } from 'react';
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "../components/App";
+import ShoppingList from './path/to/ShoppingList'; // Replace with the correct path to the ShoppingList component
 
-test("displays in 'light' mode when initialized", () => {
-  const { container } = render(<App />);
-  expect(container.querySelector(".App.light")).toBeInTheDocument();
-});
+// Rest of your test code...
+test("displays only items that match the selected category", () => {
+  render(<ShoppingList items={testData} />);
 
-test("changes to 'dark' mode when the button is clicked", () => {
-  const { container } = render(<App />);
-  expect(container.querySelector(".App.light")).toBeInTheDocument();
+  fireEvent.change(screen.getByRole("combobox"), {
+    target: { value: "Dairy" },
+  });
 
-  fireEvent.click(screen.getByText(/ Mode/));
+  expect(screen.getAllByRole("listitem")).toHaveLength(2);
 
-  expect(container.querySelector(".App.dark")).toBeInTheDocument();
-});
+  fireEvent.change(screen.getByRole("combobox"), {
+    target: { value: "Dessert" },
+  });
 
-test("changes back to 'light' mode when the button is clicked twice", () => {
-  const { container } = render(<App />);
-  expect(container.querySelector(".App.light")).toBeInTheDocument();
-
-  fireEvent.click(screen.getByText(/ Mode/));
-
-  expect(container.querySelector(".App.dark")).toBeInTheDocument();
-
-  fireEvent.click(screen.getByText(/ Mode/));
-
-  expect(container.querySelector(".App.light")).toBeInTheDocument();
+  expect(screen.getAllByRole("listitem")).toHaveLength(1);
 });

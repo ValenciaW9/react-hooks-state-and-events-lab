@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function Item({ name, category }) {
+function ItemComponent({ name, category }) {
   return (
     <li className="">
       <span>{name}</span>
@@ -10,4 +10,4 @@ function Item({ name, category }) {
   );
 }
 
-export default Item;
+export default ItemComponent;

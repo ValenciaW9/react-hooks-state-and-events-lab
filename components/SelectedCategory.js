@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 
 function ShoppingList() {
   const [selectedCategory, setSelectedCategory] = useState('Selected Category');
+  const [count, setCount] = useState(0);
 
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+      <button onClick={() => setCount(count + 1)}>
         Click me
       </button>
       <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>

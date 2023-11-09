@@ -1,35 +1,33 @@
+import React, { useState } from 'react';
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
-import React from 'react';
-import ShoppingList from './ShoppingList'; // Assuming the Shopping component is in a separate file
+import App from "../components/App";
+import ShoppingList from '../components/ShoppingList'; // Update the file path to the correct location of ShoppingList.jsx
 
-const testData = [
-  { id: 1, name: "Yogurt", category: "Dairy" },
-  { id: 2, name: "Pomegranate", category: "Produce" },
-  { id: 3, name: "Lettuce", category: "Produce" },
-  { id: 4, name: "String Cheese", category: "Dairy" },
-  { id: 5, name: "Cookies", category: "Dessert" },
-];
-
-test("displays all items when initially rendered", () => {
-  const { container } = render(<ShoppingList items={testData} />);
-  expect(container.querySelector(".Items").children).toHaveLength(
-    testData.length
-  );
+// Rest of your test code...
+test("displays in 'light' mode when initialized", () => {
+  render(<App />);
+  expect(screen.getByRole('main')).toHaveClass('light');
 });
 
-test("displays only items that match the selected category", () => {
-  const { container } = render(<ShoppingList items={testData} />);
+test("changes to 'dark' mode when the button is clicked", () => {
+  render(<App />);
+  expect(screen.getByRole('main')).toHaveClass('light');
 
-  fireEvent.change(screen.getByRole("combobox"), {
-    target: { value: "Dairy" },
-  });
+  fireEvent.click(screen.getByText(/ Mode/));
 
-  expect(container.querySelector(".Items").children).toHaveLength(2);
+  expect(screen.getByRole('main')).toHaveClass('dark');
+});
 
-  fireEvent.change(screen.getByRole("combobox"), {
-    target: { value: "Dessert" },
-  });
+test("changes back to 'light' mode when the button is clicked twice", () => {
+  render(<App />);
+  expect(screen.getByRole('main')).toHaveClass('light');
 
-  expect(container.querySelector(".Items").children).toHaveLength(1);
+  fireEvent.click(screen.getByText(/ Mode/));
+
+  expect(screen.getByRole('main')).toHaveClass('dark');
+
+  fireEvent.click(screen.getByText(/ Mode/));
+
+  expect(screen.getByRole('main')).toHaveClass('light');
 });

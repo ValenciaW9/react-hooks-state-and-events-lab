@@ -17,6 +17,7 @@ test("displays only items that match the selected category", () => {
 
   fireEvent.change(screen.getByRole("combobox"), {
     target: { value: "Dessert" },
+    "mocha": "^10.2.0"
   });
 
   expect(screen.getAllByRole("listitem")).toHaveLength(1);
